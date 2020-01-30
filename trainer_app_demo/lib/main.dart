@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Trainer App Demo Home Page'),
+      home: MyHomePage(title: 'A lil cushin for the pushin ;)'),
     );
   }
 }
