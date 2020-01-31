@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() => runApp(MyApp());
 
@@ -38,15 +39,22 @@ class MyHomePage extends StatefulWidget {
   // always marked "final".
 
   final String title;
+  
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  final databaseReference = Firestore.instance;
   int _counter = 0;
 
-  void _incrementCounter() {
+  void _incrementCounter() async {
+    await databaseReference.collection("test")
+      .document("this came from the app boys")
+      .setData({
+        'name': 'ez',
+      });
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
