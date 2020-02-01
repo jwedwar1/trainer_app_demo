@@ -1,19 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'src/welcomepage.dart';
-
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Team BR',
-      home: WelcomePage(),
-    );
-  }
-}
-
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key key, this.title}) : super(key: key);
 
@@ -22,7 +8,6 @@ class WelcomePage extends StatefulWidget {
   @override
   _WelcomePageState createState() => _WelcomePageState();
 }
-
 class _WelcomePageState extends State<WelcomePage> {
   Widget _loginButton() {
     return InkWell(
