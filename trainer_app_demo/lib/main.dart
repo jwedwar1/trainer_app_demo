@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:getflutter/getflutter.dart';
 
 void main() => runApp(MyApp());
 
@@ -9,23 +8,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Team BR',
-      home: MyHomePage(title: 'Welcome Page'),
+      home: MyWelcomePage(title: 'Welcome Page'),
     );
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
+class MyWelcomePage extends StatefulWidget {
+  MyWelcomePage({Key key, this.title}) : super(key: key);
 
   final String title;
   
   @override
-  _MyHomePageState createState() => _MyHomePageState();
+  _MyWelcomePageState createState() => _MyWelcomePageState();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _MyWelcomePageState extends State<MyWelcomePage> {
   Widget _loginButton() {
     return InkWell(
+      onTap: null,
       child: Container(
         width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(vertical: 13),
@@ -34,19 +34,47 @@ class _MyHomePageState extends State<MyHomePage> {
             borderRadius: BorderRadius.all(Radius.circular(5)),
             boxShadow: <BoxShadow>[
               BoxShadow(
-                  color: Color(0xffdf8e33).withAlpha(100),
+                  color: Color(0xff2e2a3c).withAlpha(100),
                   offset: Offset(2, 4),
                   blurRadius: 8,
                   spreadRadius: 2)
             ],
-            color: Colors.white),
+            color: Color(0xff637dab)),
         child: Text(
           'Login',
-          style: TextStyle(fontSize: 20, color: Color(0xfff7892b)),
+          style: TextStyle(fontSize: 20, color: Color(0xff000000)),
         ),
       ),
     );
   }
+  Widget _signUpButton() {
+    return InkWell(
+      onTap: null,
+      child: Container(
+         width: MediaQuery.of(context).size.width,
+        padding: EdgeInsets.symmetric(vertical: 13),
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(5)),
+            border: Border.all(color: Color(0xff6e7dab), width: 2),
+            ),
+          child: Text(
+            'Sign Up',
+            style: TextStyle(fontSize: 20, color: Color(0xff6e7dab)),
+          ),
+      ),
+      );
+  }
+   Widget _title() {
+    return Container(
+      child: (Column(
+        children: <Widget>[
+            Image.asset('assets/images/BRlogo.png')
+          ],
+        )
+      ),
+    );
+  } 
   Widget build(BuildContext context) {
      return Scaffold(
       body: Stack(
@@ -68,9 +96,16 @@ class _MyHomePageState extends State<MyHomePage> {
                     end: Alignment.bottomCenter,
                     colors: [Color(0xff847f94), Color(0xff575366)]),
             ),
-            child: Column(children: <Widget>[
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+              _title(),
+              SizedBox(height: 20),
               _loginButton(),
-              SizedBox(height: 20,)
+              SizedBox(height: 20),
+              _signUpButton(),
+              SizedBox(height:20)
             ],)
           )
         ],
