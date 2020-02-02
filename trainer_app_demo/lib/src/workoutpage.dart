@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+class WorkoutPage extends StatefulWidget {
+  WorkoutPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _WorkoutPageState createState() => _WorkoutPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _WorkoutPageState extends State<WorkoutPage> {
+
   Widget _title() {
     return Container(
       child: (Column(
         children: <Widget>[
           Image.asset('assets/images/BRlogo.png'),
-          Text("Home Page")
+          Text("Workout Page")
         ],
       )),
     );

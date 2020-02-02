@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key key, this.title}) : super(key: key);
+class WikiPage extends StatefulWidget {
+  WikiPage({Key key, this.title}) : super(key: key);
 
   final String title;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _WikiPageState createState() => _WikiPageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _WikiPageState extends State<WikiPage> {
+
   Widget _title() {
     return Container(
       child: (Column(
         children: <Widget>[
           Image.asset('assets/images/BRlogo.png'),
-          Text("Home Page")
+          Text("Wiki Page")
         ],
       )),
     );
