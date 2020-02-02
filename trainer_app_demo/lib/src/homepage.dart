@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:circular_bottom_navigation/circular_bottom_navigation.dart';
 import 'package:circular_bottom_navigation/tab_item.dart';
+import 'package:trainer_app_demo/src/welcomepage.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key key, this.title}) : super(key: key);
@@ -17,9 +18,10 @@ class _HomePageState extends State<HomePage> {
   double bottomNavBarHeight = 60;
 
   List<TabItem> tabItems = List.of([
-    new TabItem(Icons.home, "Home2", Color.fromRGBO(46, 42, 60, 1)),
+    new TabItem(Icons.home, "Home", Color.fromRGBO(46, 42, 60, 1)),
     new TabItem(Icons.library_books, "Wiki", Color.fromRGBO(132, 127, 148, 1)),
-    new TabItem(Icons.directions_run, "Workouts", Color.fromRGBO(158, 172, 221, 1)),
+    new TabItem(
+        Icons.directions_run, "Workouts", Color.fromRGBO(158, 172, 221, 1)),
     new TabItem(Icons.fastfood, "Nutrition", Color.fromRGBO(64, 81, 124, 1)),
     new TabItem(Icons.mail, "Inbox", Color.fromRGBO(132, 127, 148, 1)),
   ]);
@@ -32,8 +34,7 @@ class _HomePageState extends State<HomePage> {
     _navigationController = new CircularBottomNavigationController(selectedPos);
   }
 
-
-  Widget bodyContainer() {
+  /* Widget bodyContainer() {
     Color selectedColor = tabItems[selectedPos].circleColor;
     String title;
     switch (selectedPos) {
@@ -74,7 +75,7 @@ class _HomePageState extends State<HomePage> {
         }
       },
     );
-  }
+  } */
 
   Widget bottomNav() {
     return CircularBottomNavigation(
@@ -87,19 +88,44 @@ class _HomePageState extends State<HomePage> {
         setState(() {
           this.selectedPos = selectedPos;
           print(_navigationController.value);
+
+          switch (selectedPos) {
+            case 0:
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
+
+              break;
+            case 1:
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => WelcomePage()));
+              break;
+            case 2:
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
+              break;
+            case 3:
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => WelcomePage()));
+              break;
+            case 4:
+              Navigator.push(
+                  context, MaterialPageRoute(builder: (context) => HomePage()));
+              break;
+          }
+
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => WelcomePage()));
         });
       },
     );
   }
-
-
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Padding(child: bodyContainer(), padding: EdgeInsets.only(bottom: bottomNavBarHeight),),
+          /* Padding(child: bodyContainer(), padding: EdgeInsets.only(bottom: bottomNavBarHeight),), */
           Align(alignment: Alignment.bottomCenter, child: bottomNav())
         ],
       ),
