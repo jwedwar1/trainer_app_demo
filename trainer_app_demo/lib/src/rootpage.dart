@@ -22,11 +22,11 @@ class _RootPageState extends State<RootPage> {
   double bottomNavBarHeight = 60;
 
   List<TabItem> tabItems = List.of([
-    new TabItem(Icons.home, "Home", Color.fromRGBO(46, 42, 60, 1)),
-    new TabItem(Icons.library_books, "Wiki", Color.fromRGBO(132, 127, 148, 1)),
-    new TabItem(Icons.directions_run, "Workouts", Color.fromRGBO(158, 172, 221, 1)),
-    new TabItem(Icons.fastfood, "Nutrition", Color.fromRGBO(64, 81, 124, 1)),
-    new TabItem(Icons.mail, "Inbox", Color.fromRGBO(132, 127, 148, 1)),
+    new TabItem(Icons.home, " ", Color(0xff9eacdd)),
+    new TabItem(Icons.library_books, " ", Color(0xff9eacdd)),
+    new TabItem(Icons.directions_run, " ",Color(0xff9eacdd)),
+    new TabItem(Icons.fastfood,  " ", Color(0xff9eacdd)),
+    new TabItem(Icons.mail, " ", Color(0xff9eacdd)),
   ]);
 
   CircularBottomNavigationController _navigationController;
@@ -65,7 +65,7 @@ class _RootPageState extends State<RootPage> {
       tabItems,
       controller: _navigationController,
       barHeight: bottomNavBarHeight,
-      barBackgroundColor: Colors.white,
+      barBackgroundColor: Color(0xff575366),
       animationDuration: Duration(milliseconds: 300),
       selectedCallback: (int selectedPos) {
         setState(() {

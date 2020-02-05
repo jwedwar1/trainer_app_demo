@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:trainer_app_demo/src/rootpage.dart';
+import 'package:trainer_app_demo/src/homepage.dart';
 
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key key, this.title}) : super(key: key);
 
   final String title;
-  
+
   @override
   _WelcomePageState createState() => _WelcomePageState();
 }
+
 class _WelcomePageState extends State<WelcomePage> {
   Widget _loginButton() {
     return InkWell(
-     onTap: () {
+      onTap: () {
         Navigator.push(
-          context, MaterialPageRoute(builder: (context) =>
-          RootPage()));
+            context, MaterialPageRoute(builder: (context) => HomePage()));
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -30,7 +30,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   blurRadius: 8,
                   spreadRadius: 2)
             ],
-            color: Color(0xff637dab)),
+            color: Color(0xff9eacdd)),
         child: Text(
           'Login',
           style: TextStyle(fontSize: 20, color: Color(0xff000000)),
@@ -38,42 +38,42 @@ class _WelcomePageState extends State<WelcomePage> {
       ),
     );
   }
+
   Widget _signUpButton() {
     return InkWell(
       onTap: null,
       child: Container(
-         width: MediaQuery.of(context).size.width,
+        width: MediaQuery.of(context).size.width,
         padding: EdgeInsets.symmetric(vertical: 13),
         alignment: Alignment.center,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(5)),
-            border: Border.all(color: Color(0xff6e7dab), width: 2),
-            ),
-          child: Text(
-            'Sign Up',
-            style: TextStyle(fontSize: 20, color: Color(0xff6e7dab)),
-          ),
-      ),
-      );
-  }
-   Widget _title() {
-    return Container(
-      child: (Column(
-        children: <Widget>[
-            Image.asset('assets/images/BRlogo.png')
-          ],
-        )
+          borderRadius: BorderRadius.all(Radius.circular(5)),
+          border: Border.all(color: Color(0xff9eacdd), width: 2),
+        ),
+        child: Text(
+          'Sign Up',
+          style: TextStyle(fontSize: 20, color: Color(0xff9eacdd)),
+        ),
       ),
     );
-  } 
+  }
+
+  Widget _title() {
+    return Container(
+      child: (Column(
+        children: <Widget>[Image.asset('assets/images/BRlogo.png')],
+      )),
+    );
+  }
+
   Widget build(BuildContext context) {
-     return Scaffold(
+    return Scaffold(
       body: Stack(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.symmetric(horizontal: 20),
-            height: MediaQuery.of(context).size.height,
-            decoration: BoxDecoration(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              height: MediaQuery.of(context).size.height,
+              decoration: BoxDecoration(
                 borderRadius: BorderRadius.all(Radius.circular(5)),
                 boxShadow: <BoxShadow>[
                   BoxShadow(
@@ -86,21 +86,21 @@ class _WelcomePageState extends State<WelcomePage> {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: [Color(0xff847f94), Color(0xff575366)]),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-              _title(),
-              SizedBox(height: 20),
-              _loginButton(),
-              SizedBox(height: 20),
-              _signUpButton(),
-              SizedBox(height:20)
-            ],)
-          )
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  _title(),
+                  SizedBox(height: 20),
+                  _loginButton(),
+                  SizedBox(height: 20),
+                  _signUpButton(),
+                  SizedBox(height: 20)
+                ],
+              ))
         ],
       ),
-     );
+    );
   }
 }
