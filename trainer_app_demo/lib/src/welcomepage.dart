@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:trainer_app_demo/src/homepage.dart';
+import 'package:trainer_app_demo/src/rootpage.dart';
 
 class WelcomePage extends StatefulWidget {
   WelcomePage({Key key, this.title}) : super(key: key);
@@ -15,7 +15,7 @@ class _WelcomePageState extends State<WelcomePage> {
     return InkWell(
       onTap: () {
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
+            context, MaterialPageRoute(builder: (context) => RootPage()));
       },
       child: Container(
         width: MediaQuery.of(context).size.width,
